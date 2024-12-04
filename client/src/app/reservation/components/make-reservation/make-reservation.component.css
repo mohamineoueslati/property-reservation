@@ -1,0 +1,62 @@
+.reservation-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dates-control {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dates-control div {
+  flex: 1 0 auto;
+}
+
+.success-message {
+  border: 1px solid #4caf50;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.success-message span {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.success-message::before {
+  content: "✔";
+  font-size: 16px;
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+.success-message button {
+  border: none;
+  background: none;
+  color: #2e7d32;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.success-message button:hover {
+  color: #1b5e20;
+}

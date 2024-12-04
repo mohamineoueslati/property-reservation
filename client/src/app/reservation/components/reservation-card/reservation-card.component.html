@@ -1,0 +1,9 @@
+<div class="reservation-card">
+  <h3>{{ reservation?.propertyName }}</h3>
+  <p>{{ reservation?.propertyType }}</p>
+  <p>{{ reservation?.city }}, {{ reservation?.country }}</p>
+  <p>{{ reservation?.address }}</p>
+  <p>{{ reservation?.moneySpent | currency }}</p>
+  <p>From {{ reservation?.fromDate | date }}</p>
+  <p>To {{ reservation?.toDate | date }}</p>
+</div>

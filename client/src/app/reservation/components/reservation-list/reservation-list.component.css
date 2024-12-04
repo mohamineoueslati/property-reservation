@@ -1,0 +1,78 @@
+.reservations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-bar input {
+  width: 100%;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filter-control {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dates-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.reservation-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spending-summary {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 16px 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.spending-summary p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.spending-summary p span {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.spending-summary::before {
+  content: "Spending Summary";
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+.reservation-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: inline-block;
+  width: 241px;
+}
+
+.reservation-card h3 {
+  margin: 0;
+}
+
+.reservation-card p {
+  margin: 5px 0;
+}

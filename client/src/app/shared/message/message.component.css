@@ -1,0 +1,54 @@
+.generic-message {
+  border: 1px solid;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.generic-message span {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.generic-message button {
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.generic-message.success {
+  border-color: #4caf50;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.generic-message.success::before {
+  content: "✔";
+  font-size: 16px;
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+.generic-message.failure {
+  border-color: #f44336;
+  background-color: #fdecea;
+  color: #d32f2f;
+}
+
+.generic-message.failure::before {
+  content: "✘";
+  font-size: 16px;
+  color: #f44336;
+  margin-right: 10px;
+}

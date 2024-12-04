@@ -1,0 +1,4 @@
+<div *ngIf="isDisplayed" [class]="getMessageClass()" class="generic-message">
+  <span>{{ message }}</span>
+  <button (click)="closeMessage()">×</button>
+</div>

@@ -1,0 +1,22 @@
+.property-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: inline-block;
+  width: 241px;
+}
+
+.property-card h3 {
+  margin: 0;
+}
+
+.property-card p {
+  margin: 5px 0;
+}
+
+.booked {
+  color: red;
+}
+
+.available {
+  color: green;
+}

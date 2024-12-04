@@ -1,0 +1,12 @@
+<div class="property-card">
+  <h3>{{ property?.name }}</h3>
+  <p>{{ property?.propertyType }}</p>
+  <p>{{ property?.city }}, {{ property?.country }}</p>
+  <p>{{ property?.address }}</p>
+  <p>{{ property?.price | currency }}</p>
+  <p
+    [ngClass]="{ booked: !property?.available, available: property?.available }"
+  >
+    {{ property?.available ? "Available" : "Booked" }}
+  </p>
+</div>

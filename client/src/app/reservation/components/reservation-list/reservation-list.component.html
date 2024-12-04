@@ -1,0 +1,113 @@
+<div class="reservations-container">
+  <app-message
+    [isDisplayed]="displayMessage"
+    [message]="message"
+    [severity]="messageSeverity"
+  ></app-message>
+  <div class="spending-summary">
+    <p>
+      Total money spent on flats:
+      <span>{{ totalMoneySpentOnFlat | currency }}</span>
+    </p>
+    <p>
+      Total money spent on hotels:
+      <span>{{ totalMoneySpentOnHotels | currency }}</span>
+    </p>
+    <p>
+      Total money spent: <span>{{ totalMoneySpent | currency }}</span>
+    </p>
+    <p>
+      City with most reservations: <span>{{ cityWithMostReservations }}</span>
+    </p>
+  </div>
+  <form (ngSubmit)="onFilter(filterForm)" #filterForm="ngForm">
+    <div class="filters">
+      <div class="search-bar">
+        <input
+          id="searchQuery"
+          name="searchQuery"
+          type="text"
+          ngModel
+          placeholder="Search properties by name, city, address, or country"
+        />
+      </div>
+
+      <div class="filter-controls">
+        <label for="propertyType">Property Type:</label>
+        <select ngModel id="propertyType" name="propertyType">
+          <option *ngFor="let type of propertyTypes" [value]="type">
+            {{ type }}
+          </option>
+        </select>
+
+        <label for="minPrice">Min Price:</label>
+        <input
+          type="range"
+          ngModel
+          id="minPrice"
+          name="minPrice"
+          min="0"
+          max="1000"
+        />
+        <span>{{ filterForm.value.minPrice | currency }}</span>
+
+        <label for="maxPrice">Max Price:</label>
+        <input
+          type="range"
+          ngModel
+          id="maxPrice"
+          name="maxPrice"
+          min="0"
+          max="1000"
+        />
+        <span>{{ filterForm.value.maxPrice | currency }}</span>
+      </div>
+
+      <div class="dates-control">
+        <div class="filter-control">
+          <label for="fromDate">From Date:</label>
+          <input type="datetime-local" id="fromDate" name="fromDate" ngModel />
+        </div>
+
+        <div class="filter-control">
+          <label for="toDate">To Date:</label>
+          <input type="datetime-local" id="toDate" name="toDate" ngModel />
+        </div>
+      </div>
+      <div class="btn-container">
+        <button
+          type="submit"
+          class="btn primary-btn"
+          [disabled]="!filterForm.valid"
+        >
+          Search
+        </button>
+        <div class="pagination">
+          <button
+            class="btn secondary-btn"
+            (click)="prevPage()"
+            [disabled]="currentPage === 0"
+          >
+            Previous
+          </button>
+          <span>Page {{ currentPage + 1 }}</span>
+          <button
+            class="btn secondary-btn"
+            (click)="nextPage()"
+            [disabled]="(currentPage + 1) * pageSize >= totalRecords"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="reservation-cards">
+    <app-reservation-card
+      *ngFor="let reservation of reservations"
+      [reservation]="reservation"
+    >
+    </app-reservation-card>
+  </div>
+</div>

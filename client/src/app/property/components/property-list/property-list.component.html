@@ -1,0 +1,126 @@
+<div class="properties-container">
+  <app-message
+    [isDisplayed]="displayMessage"
+    [message]="message"
+    [severity]="messageSeverity"
+  ></app-message>
+  <form (ngSubmit)="onFilter(filterForm)" #filterForm="ngForm">
+    <div class="filters">
+      <div class="search-bar">
+        <input
+          id="searchQuery"
+          name="searchQuery"
+          type="text"
+          ngModel
+          placeholder="Search properties by name, city, address, or country"
+        />
+      </div>
+
+      <div class="filter-controls">
+        <div class="filter-control">
+          <label for="propertyType">Property Type:</label>
+          <select id="propertyType" name="propertyType" ngModel>
+            <option *ngFor="let type of propertyTypes" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+
+        <div class="filter-control">
+          <label for="minPrice">Min Price:</label>
+          <input
+            type="range"
+            id="minPrice"
+            name="minPrice"
+            min="0"
+            max="1000"
+            ngModel
+          />
+          <span>{{ filterForm.value.minPrice | currency }}</span>
+        </div>
+
+        <div class="filter-controls">
+          <label for="maxPrice">Max Price:</label>
+          <input
+            type="range"
+            id="maxPrice"
+            name="maxPrice"
+            min="0"
+            max="1000"
+            ngModel
+          />
+          <span>{{ filterForm.value.maxPrice | currency }}</span>
+        </div>
+
+        <div class="filter-control">
+          <label for="availability">Available Only:</label>
+          <input
+            type="checkbox"
+            id="availability"
+            name="availability"
+            ngModel
+          />
+        </div>
+      </div>
+
+      <div class="dates-control">
+        <div class="filter-control">
+          <label for="fromDate">From Date:</label>
+          <input
+            type="datetime-local"
+            id="fromDate"
+            name="fromDate"
+            [ngModel]="today | date : 'yyyy-MM-ddTHH:mm'"
+            required
+          />
+        </div>
+
+        <div class="filter-control">
+          <label for="toDate">To Date:</label>
+          <input
+            type="datetime-local"
+            id="toDate"
+            name="toDate"
+            [ngModel]="tomorrow | date : 'yyyy-MM-ddTHH:mm'"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button
+          type="submit"
+          class="btn primary-btn"
+          [disabled]="!filterForm.valid"
+        >
+          Search
+        </button>
+        <div class="pagination">
+          <button
+            class="btn secondary-btn"
+            (click)="prevPage()"
+            [disabled]="currentPage === 0"
+          >
+            Previous
+          </button>
+          <span>Page {{ currentPage + 1 }}</span>
+          <button
+            class="btn secondary-btn"
+            (click)="nextPage()"
+            [disabled]="(currentPage + 1) * pageSize >= totalRecords"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="property-cards">
+    <app-property-card
+      *ngFor="let property of properties"
+      [property]="property"
+    >
+    </app-property-card>
+  </div>
+</div>
